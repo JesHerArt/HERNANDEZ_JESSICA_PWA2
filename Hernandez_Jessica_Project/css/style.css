@@ -1,0 +1,252 @@
+/*
+Jessica J. Hernandez
+ID: 0004631401
+March 6, 2015
+Programming for Web Applications 2 | 201503-01
+Professor: Crystal Silvestro
+Full Sail University
+*/
+
+
+/* _____________________________________ */
+/*              MAIN STYLES              */
+/* _____________________________________ */
+
+body {
+    font-family: 'Arimo', sans-serif;
+    margin: 0;
+    position: relative;
+    background: #c4fbe6;
+}
+
+#container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+header {
+    position: relative;
+    background: #fff;
+}
+
+#bookmark {
+    position: absolute;
+    top: 0;
+    left: 275px;
+    margin: 0;
+    z-index: 10;
+}
+
+#mainContent {
+    background: #fff;
+    padding: 20px;
+}
+
+#topBar, footer {
+    background: rgb(216,247,153); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(216,247,153,1) 0%, rgba(167,204,93,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,247,153,1)), color-stop(100%,rgba(167,204,93,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(216,247,153,1) 0%,rgba(167,204,93,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(216,247,153,1) 0%,rgba(167,204,93,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(216,247,153,1) 0%,rgba(167,204,93,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(216,247,153,1) 0%,rgba(167,204,93,1) 100%); /* W3C */
+}
+
+#topBar {
+    margin-bottom: 15px;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+#cta {
+    width: 920px;
+    height: 350px;
+    background-image: url("../images/cta.png");
+}
+
+#ctaDescription {
+    margin: 0 0 0 615px;
+    color: #96bd47;
+    font-size: larger;
+    font-weight: bold;
+    padding-top: 37.5px;
+    line-height: 25px;
+}
+
+hr {
+    border-bottom: 2px solid #8197c1;
+    margin: 20px 0;
+}
+
+.columns {
+    width: 276px;
+    margin: 0 13.3333333333px 20px 13.3333333333px;
+    float: left;
+    text-align: center;
+    padding: 10px 0;
+    border: 2px solid #ef6752;
+    font-weight: bold;
+    background: #fee8f6;
+}
+
+.clear {
+    clear: both;
+}
+
+
+
+/* _____________________________________ */
+/*              NAVIGATION               */
+/* _____________________________________ */
+
+nav {
+    padding: 20px 0 0 0;
+    text-align: center;
+}
+
+
+
+/* _____________________________________ */
+/*           HEADINGS & TEXT             */
+/* _____________________________________ */
+
+h1 {
+    color: #6086cd;
+}
+
+h2 {
+    font-family: 'Averia Serif Libre', cursive;
+}
+
+#benefits {
+    text-align: center;
+}
+
+.benefitDescription {
+    padding: 0 5px;
+}
+
+.benefitDescription p {
+    margin-bottom: 0;
+}
+
+.small, footer {
+    font-size: 0.8em;
+}
+
+
+
+/* _____________________________________ */
+/*                 LINKS                 */
+/* _____________________________________ */
+
+.divButtonLink {
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+}
+
+#topBar > .btn {
+    padding: 1% 2%;
+    font-size: 16px;
+    margin: 1% 0.5%;
+    background: #a6c0f0;
+    background-image: -webkit-linear-gradient(top, #a6c0f0, #6086cd);
+    background-image: -moz-linear-gradient(top, #a6c0f0, #6086cd);
+    background-image: -ms-linear-gradient(top, #a6c0f0, #6086cd);
+    background-image: -o-linear-gradient(top, #a6c0f0, #6086cd);
+    background-image: linear-gradient(to bottom, #a6c0f0, #6086cd);
+}
+
+#topBar > .btn:hover {
+    background: #6086cd;
+    background-image: -webkit-linear-gradient(top, #6086cd, #a6c0f0);
+    background-image: -moz-linear-gradient(top, #6086cd, #a6c0f0);
+    background-image: -ms-linear-gradient(top, #6086cd, #a6c0f0);
+    background-image: -o-linear-gradient(top, #6086cd, #a6c0f0);
+    background-image: linear-gradient(to bottom, #6086cd, #a6c0f0);
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    margin: 0 1%;
+    background: #8cd9e2;
+    background-image: -webkit-linear-gradient(top, #8cd9e2, #6ac8d4);
+    background-image: -moz-linear-gradient(top, #8cd9e2, #6ac8d4);
+    background-image: -ms-linear-gradient(top, #8cd9e2, #6ac8d4);
+    background-image: -o-linear-gradient(top, #8cd9e2, #6ac8d4);
+    background-image: linear-gradient(to bottom, #8cd9e2, #6ac8d4);
+    -webkit-border-radius: 14;
+    -moz-border-radius: 14;
+    border-radius: 14px;
+    text-shadow: 1px 1px 0 #07818a;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 1% 4%;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #5fb8c2;
+    background-image: -webkit-linear-gradient(top, #5fb8c2, #8cd9e2);
+    background-image: -moz-linear-gradient(top, #5fb8c2, #8cd9e2);
+    background-image: -ms-linear-gradient(top, #5fb8c2, #8cd9e2);
+    background-image: -o-linear-gradient(top, #5fb8c2, #8cd9e2);
+    background-image: linear-gradient(to bottom, #5fb8c2, #8cd9e2);
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: #ef6752;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: #bf4336;
+    text-decoration: underline;
+}
+
+footer a:link, footer a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover, footer a:active {
+    color: #ef6752;
+    text-decoration: underline;
+}
+
+
+
+/* _____________________________________ */
+/*            IMAGES + VIDEO             */
+/* _____________________________________ */
+
+
+
+/* _____________________________________ */
+/*                TABLES                 */
+/* _____________________________________ */
+
+
+/* _____________________________________ */
+/*                 FORM                  */
+/* _____________________________________ */
+
+form {
+    width: 500px;
+    margin: 0 auto;
+}
