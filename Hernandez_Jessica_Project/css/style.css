@@ -1,7 +1,7 @@
 /*
 Jessica J. Hernandez
 ID: 0004631401
-March 6, 2015
+March 6, 2015 - March 13, 2015 (Project Week 2)
 Programming for Web Applications 2 | 201503-01
 Professor: Crystal Silvestro
 Full Sail University
@@ -88,6 +88,11 @@ hr {
     margin: 20px 0;
 }
 
+.hr2 {
+    color: #fff;
+    border: 1px solid #fff;
+}
+
 .columns {
     width: 276px;
     margin: 0 13.3333333333px 20px 13.3333333333px;
@@ -153,6 +158,7 @@ h2 {
     color: #6086cd;
     font-weight: bold;
     padding: 19px 0;
+    display: inline-block;
 }
 
 .projectDetails p {
@@ -174,28 +180,7 @@ h2 {
     top:0;
 }
 
-#topBar > .btn , input[type='submit'] {
-    padding: 1% 2%;
-    font-size: 16px;
-    margin: 1% 0.5%;
-    background: #a6c0f0;
-    background-image: -webkit-linear-gradient(top, #a6c0f0, #6086cd);
-    background-image: -moz-linear-gradient(top, #a6c0f0, #6086cd);
-    background-image: -ms-linear-gradient(top, #a6c0f0, #6086cd);
-    background-image: -o-linear-gradient(top, #a6c0f0, #6086cd);
-    background-image: linear-gradient(to bottom, #a6c0f0, #6086cd);
-}
-
-#topBar > .btn:hover, input[type='submit']:hover {
-    background: #6086cd;
-    background-image: -webkit-linear-gradient(top, #6086cd, #a6c0f0);
-    background-image: -moz-linear-gradient(top, #6086cd, #a6c0f0);
-    background-image: -ms-linear-gradient(top, #6086cd, #a6c0f0);
-    background-image: -o-linear-gradient(top, #6086cd, #a6c0f0);
-    background-image: linear-gradient(to bottom, #6086cd, #a6c0f0);
-}
-
-.btn, input[type='submit'] {
+.btn {
     position: relative;
     display: inline-block;
     margin: 0 1%;
@@ -215,13 +200,43 @@ h2 {
     text-decoration: none;
 }
 
-.btn:hover , input[type='submit']:hover{
+.btn:hover{
     background: #5fb8c2;
     background-image: -webkit-linear-gradient(top, #5fb8c2, #8cd9e2);
     background-image: -moz-linear-gradient(top, #5fb8c2, #8cd9e2);
     background-image: -ms-linear-gradient(top, #5fb8c2, #8cd9e2);
     background-image: -o-linear-gradient(top, #5fb8c2, #8cd9e2);
     background-image: linear-gradient(to bottom, #5fb8c2, #8cd9e2);
+    text-decoration: none;
+}
+
+#topBar > .btn , #formSubmit > input[type='submit'],  .projectActions > .btn{
+    position: relative;
+    display: inline-block;
+    padding: 1% 2%;
+    font-size: 16px;
+    margin: 1% 0.5%;
+    background: #a6c0f0;
+    background-image: -webkit-linear-gradient(top, #a6c0f0, #6086cd);
+    background-image: -moz-linear-gradient(top, #a6c0f0, #6086cd);
+    background-image: -ms-linear-gradient(top, #a6c0f0, #6086cd);
+    background-image: -o-linear-gradient(top, #a6c0f0, #6086cd);
+    background-image: linear-gradient(to bottom, #a6c0f0, #6086cd);
+    -webkit-border-radius: 14;
+    -moz-border-radius: 14;
+    border-radius: 14px;
+    text-shadow: 1px 1px 0 #07818a;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#topBar > .btn:hover, #formSubmit > input[type='submit']:hover, .projectActions > .btn:hover{
+    background: #6086cd;
+    background-image: -webkit-linear-gradient(top, #6086cd, #a6c0f0);
+    background-image: -moz-linear-gradient(top, #6086cd, #a6c0f0);
+    background-image: -ms-linear-gradient(top, #6086cd, #a6c0f0);
+    background-image: -o-linear-gradient(top, #6086cd, #a6c0f0);
+    background-image: linear-gradient(to bottom, #6086cd, #a6c0f0);
     text-decoration: none;
 }
 
@@ -296,8 +311,8 @@ label {
     background: #f4f3f2;
 }
 
-input[type='submit'] {
-    margin-left: 365px;
+#formSubmit > input[type='submit'] {
+    margin-left: 395px;
 }
 
 input::-webkit-input-placeholder {
@@ -314,4 +329,10 @@ input:-moz-placeholder {   /* Older versions of Firefox */
 
 input:-ms-input-placeholder {
     font-style: italic;
+}
+
+
+
+.hide {
+    display: none;
 }
