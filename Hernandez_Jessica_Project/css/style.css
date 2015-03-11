@@ -166,6 +166,19 @@ h2 {
     padding: 10px 20px;
 }
 
+.tooltip {
+    display: none;
+    position: absolute;
+    border: 1px solid green;
+    -webkit-border-radius: 14;
+    -moz-border-radius: 14;
+    border-radius: 14px;
+    background: #000;
+    color: #fff;
+    padding: 5px;
+    font-size: 11px;
+}
+
 
 
 /* _____________________________________ */

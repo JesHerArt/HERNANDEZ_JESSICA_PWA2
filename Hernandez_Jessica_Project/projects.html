@@ -38,9 +38,11 @@ Full Sail University
 <body>
 
 <!--Add to bookmarks/favorites button-->
+<!--
 <div id="bookmark">
-    <img src="images/bookmark.png" title="Add to bookmarks/favorites" alt="Add to bookmarks/favorites" />
+    <a id="bookmarkme" href="#" rel="sidebar" title="bookmark this page"><img src="images/bookmark.png" title="Add to bookmarks/favorites" alt="Add to bookmarks/favorites" /></a>
 </div>
+-->
 
 <!--Container to hold content-->
 <div id="container">
@@ -54,7 +56,7 @@ Full Sail University
         </div>
 
         <div id="logo">
-            <img src="images/logo.png" title="Homework On The Go Logo" alt="Homework On The Go Logo"/>
+            <a href="index.html"><img src="images/logo.png" title="Homework On The Go Logo" alt="Homework On The Go Logo"/></a>
         </div>
 
         <nav>
@@ -147,7 +149,14 @@ Full Sail University
 
     <footer class="clear">
 
-        <p><a href="index.html">Home</a> &nbsp;|&nbsp; <a href="#">About</a> &nbsp;|&nbsp; <a href="dashboard.html">Dashboard</a> &nbsp;|&nbsp; <a href="register.html">Register</a> &nbsp;|&nbsp; <a href="#">Contact</a><br><br>&copy; 2015 Jessica J. Hernandez - Student at Full Sail University</p>
+        <p><span><a href="index.html">Home</a> &nbsp;|&nbsp; </span>
+           <span class="hide"><a href="#">About</a> &nbsp;|&nbsp; </span>
+           <span><a href="dashboard.html">Dashboard</a> &nbsp;|&nbsp; </span>
+           <span><a href="projects.html">Projects</a> &nbsp;|&nbsp; </span>
+           <span class="hide"><a href="register.html">Register</a> &nbsp;|&nbsp; </span>
+           <span><a href="#">Contact</a></span>
+
+           <br><br>&copy; 2015 Jessica J. Hernandez - Student at Full Sail University</p>
 
     </footer>
 

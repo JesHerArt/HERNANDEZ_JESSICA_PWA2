@@ -38,9 +38,11 @@ Full Sail University
 <body>
 
 <!--Add to bookmarks/favorites button-->
+<!--
 <div id="bookmark">
-    <img src="images/bookmark.png" title="Add to bookmarks/favorites" alt="Add to bookmarks/favorites" />
+    <a id="bookmarkme" href="#" rel="sidebar" title="bookmark this page"><img src="images/bookmark.png" title="Add to bookmarks/favorites" alt="Add to bookmarks/favorites" /></a>
 </div>
+-->
 
 <!--Container to hold content-->
 <div id="container">
@@ -48,12 +50,12 @@ Full Sail University
     <!--The header holds the login/register buttons, logo, and the navigation-->
     <header>
         <div id="topBar">
-            <div class="btn">Login<a href="#"><span class="divButtonLink"></span></a></div>
+            <div class="btn">Login<a href="dashboard.html"><span class="divButtonLink"></span></a></div>
             <div class="btn">Register<a href="register.html"><span class="divButtonLink"></span></a></div>
         </div>
 
         <div id="logo">
-            <img src="images/logo.png" title="Homework On The Go Logo" alt="Homework On The Go Logo"/>
+            <a href="index.html"><img src="images/logo.png" title="Homework On The Go Logo" alt="Homework On The Go Logo"/></a>
         </div>
 
         <nav>
@@ -87,24 +89,24 @@ Full Sail University
             <div id="fields">
                 <br>
                 <label for="firstName">First Name:</label>
-                <input type="text" name="firstName" id="firstName" placeholder="Jessica" required />
+                <input type="text" name="firstName" id="firstName" placeholder="Jessica" required title="Please enter your first name" class="masterTooltip" />
 
                 <label for="lastName">Last Name:</label>
-                <input type="text" name="lastName" id="lastName" placeholder="Hernandez" required />
+                <input type="text" name="lastName" id="lastName" placeholder="Hernandez" required title="Please enter your last name" class="masterTooltip" />
 
                 <label for="email">Email Address:</label>
-                <input type="email" name="email" id="email" placeholder="someone@domain.com" required />
+                <input type="email" name="email" id="email" placeholder="someone@domain.com" required title="Please enter a valid email address" class="masterTooltip" />
 
                 <label for="passWord">Password:</label>
-                <input type="password" name="passWord" id="passWord" placeholder="Enter a password" required />
+                <input type="password" name="passWord" id="passWord" placeholder="Enter a password" required title="Password is case sensitive" class="masterTooltip" />
 
                 <label for="passWordConfirm">Retype Password:</label>
-                <input type="password" name="passWordConfirm" id="passWordConfirm" placeholder="Retype password" required />
+                <input type="password" name="passWordConfirm" id="passWordConfirm" placeholder="Retype password" required title="Password is case sensitive" class="masterTooltip" />
 
             </div>
 
             <div id="formSubmit">
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" title="Click to submit your registration form" class="masterTooltip" />
             </div>
 
         </form>
@@ -117,7 +119,15 @@ Full Sail University
 
     <footer class="clear">
 
-        <p><a href="index.html">Home</a> &nbsp;|&nbsp; <a href="#">About</a> &nbsp;|&nbsp; <a href="dashboard.html">Dashboard</a> &nbsp;|&nbsp; <a href="register.html">Register</a> &nbsp;|&nbsp; <a href="#">Contact</a><br><br>&copy; 2015 Jessica J. Hernandez - Student at Full Sail University</p>
+        <p><span><a href="index.html">Home</a> &nbsp;|&nbsp; </span>
+           <span><a href="dashboard.html">Login</a> &nbsp;|&nbsp; </span>
+           <span><a href="#">About</a> &nbsp;|&nbsp; </span>
+           <span class="hide"><a href="dashboard.html">Dashboard</a> &nbsp;|&nbsp; </span>
+           <span class="hide"><a href="projects.html">Projects</a> &nbsp;|&nbsp; </span>
+           <span><a href="register.html">Register</a> &nbsp;|&nbsp; </span>
+           <span><a href="#">Contact</a></span>
+
+           <br><br>&copy; 2015 Jessica J. Hernandez - Student at Full Sail University</p>
 
     </footer>
 
