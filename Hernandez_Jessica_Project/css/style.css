@@ -84,7 +84,8 @@ footer p {
 }
 
 hr {
-    border-bottom: 2px solid #8197c1;
+    border: 2px solid #398595;
+    color: #fff;
     margin: 20px 0;
 }
 
@@ -128,18 +129,16 @@ nav {
 }
 
 #tabs {
-    background-color: aquamarine;
     width: 700px;
-/*    height: 300px;*/
     padding: 30px;
     margin: 0 auto;
+    border: 2px solid #398595;
 }
 
 #tabs-nav {
-    width: 760px;
+    width: 764px;
     height: 58px;
     padding: 0;
-/*    background-color: #ef6752;*/
     text-decoration: none;
     list-style-type: none;
     margin: 0 auto;
@@ -155,7 +154,7 @@ nav {
     display: inline-block;
     position: relative;
     padding: 20px 30px;
-    background-color: #ef6752;
+    background-color: #bf4336;
     text-transform: uppercase;
     font-weight: bold;
     margin: 0 30px 0 0;
@@ -166,6 +165,14 @@ nav {
 #tabs-nav li div {
     background-color: #bf4336;
 }*/
+
+.current > div{
+    background-color: #ef6752 !important;
+    border-top: 2px solid #398595;
+    border-right: 2px solid #398595;
+    border-left: 2px solid #398595;
+    border-bottom: 2px solid #f4f3f2;
+}
 
 
 
