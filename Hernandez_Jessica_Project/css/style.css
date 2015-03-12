@@ -101,7 +101,7 @@ hr {
     padding: 10px 0;
     border: 2px solid #ef6752;
     font-weight: bold;
-    background: #fee8f6;
+    background: hsla(8, 83%, 63%, 0.07);
 }
 
 .clear {
@@ -110,6 +110,10 @@ hr {
 
 .projectDetails {
     padding: 10px 0;
+}
+
+#logo {
+    padding-top: 5px;
 }
 
 
@@ -121,6 +125,40 @@ hr {
 nav {
     padding: 20px 0 0 0;
     text-align: center;
+}
+
+#tabs {
+    background-color: aquamarine;
+    width: 700px;
+    height: 300px;
+    padding: 30px;
+    margin: 0 auto;
+}
+
+#tabs-nav {
+    width: 760px;
+    height: 58px;
+    padding: 0;
+/*    background-color: #ef6752;*/
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0 auto;
+    color: #fff;
+}
+
+#tabs-nav li {
+    display: inline;
+    overflow: auto;
+}
+
+#tabs-nav li div{
+    display: inline-block;
+    position: relative;
+    padding: 20px 30px;
+    background-color: #ef6752;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 30px 0 0;
 }
 
 
@@ -169,14 +207,28 @@ h2 {
 .tooltip {
     display: none;
     position: absolute;
-    border: 1px solid green;
+    border: 1px solid rgba(167,204,93,1);
     -webkit-border-radius: 14;
     -moz-border-radius: 14;
     border-radius: 14px;
-    background: #000;
-    color: #fff;
-    padding: 5px;
+    background: hsla(80, 85%, 78%, 0.67);
+    color: rgba(34, 119, 13, 1);
+    padding: 10px 20px;
     font-size: 11px;
+    font-weight: bold;
+    font-style: italic;
+    z-index: 11;
+}
+
+#fields > .smallText {
+    font-size: 11px;
+    font-style: italic;
+    text-align: right;
+    margin: 0 25px 10px 0;
+}
+
+.redStar {
+    color: #ef6752;
 }
 
 
@@ -185,7 +237,7 @@ h2 {
 /*                 LINKS                 */
 /* _____________________________________ */
 
-.divButtonLink {
+.divButtonLink, li > .divButtonLink {
     position:absolute;
     width:100%;
     height:100%;
@@ -311,17 +363,18 @@ input[type='text'], input[type='email'], input[type='password'] {
     width: 88%;
     padding: 8px;
     font-size: 14px;
-    margin: 0 20px 20px;
+    margin: 5px 20px 20px;
     border: 1px solid #6086cd;
     color: #a7cc5d;
 }
 
-label {
+#fields > label {
     margin: 0 20px;
 }
 
-#fields, .projectDetails{
+#fields, .projectDetails, #tabs{
     background: #f4f3f2;
+    padding-bottom: 15px;
 }
 
 #formSubmit > input[type='submit'] {

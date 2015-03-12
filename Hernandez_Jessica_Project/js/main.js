@@ -37,7 +37,7 @@ Full Sail University
     }).mousemove(function (event) {
         
         var mouseX = event.pageX + 20,
-            mouseY = event.pageY + 10;
+            mouseY = event.pageY + 5;
         $('.tooltip').css({top: mouseY, left: mouseX});
         
     });
