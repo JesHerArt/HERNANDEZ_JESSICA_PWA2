@@ -61,6 +61,39 @@ Full Sail University
     }).eq(0).addClass('current');
     
     
+    
+    //  Overlay and modal actions
+    $('.modalClick').on('click', function (event) {
+        event.preventDefault();
+        $('#overlay').fadeIn().find('#modal').fadeIn();
+    });
+    
+    $('.close').on('click', function (event) {
+        event.preventDefault();
+        $('#overlay').fadeOut().find('#modal').fadeOut(); 
+    });
+    
+    
+    
+    //  Fade add project button
+    $('#addBtns').fadeTo(100, 0.6);
+    
+    $('#addBtn1, #addBtn2').mouseover( function () {
+        $('#addBtns').fadeTo(100, 1);  
+    });
+    
+    $('#addBtn1, #addBtn2').mouseout( function () {
+        $('#addBtns').fadeTo(100, 0.6);  
+    });
+    
+    
+    
+    //  Editing the placeholder text color for input[type="file"] and input[type="date"
+    $('#pFile, #dueDate').on('click', function () {
+       $(this).css({'color':'#a7cc5d'}); 
+    });
+    
+    
                          
 	
 })(jQuery); // end private scope

@@ -161,17 +161,41 @@ nav {
     letter-spacing: 2px;
 }
 
-/* NON ACTIVE TAB BG COLOR
-#tabs-nav li div {
-    background-color: #bf4336;
-}*/
-
 .current > div{
     background-color: #ef6752 !important;
     border-top: 2px solid #398595;
     border-right: 2px solid #398595;
     border-left: 2px solid #398595;
     border-bottom: 2px solid #f4f3f2;
+}
+
+#overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background: rgba(240, 248, 255, 0.36);
+}
+
+#modal {
+    width: 500px;
+    background-color: #8cd9e2;
+    box-shadow: 0 0 30px #2b2b2b;
+    overflow: hidden;
+    position: relative;
+    top: 15%;
+    left: 30%;
+    z-index: 1001;
+    display: none;
+    padding: 20px;
+}
+
+.close {
+    margin-left: 285px;
+    display: inline-block;
 }
 
 
@@ -186,6 +210,16 @@ h1 {
 
 h2 {
     font-family: 'Averia Serif Libre', cursive;
+}
+
+.modalHeader {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 #benefits {
@@ -206,7 +240,7 @@ h2 {
 
 #welcomeText {
     margin: 0 0.9%;
-    color: #6086cd;
+    color: #474747;
     font-weight: bold;
     padding: 19px 0;
     display: inline-block;
@@ -230,10 +264,10 @@ h2 {
     font-size: 11px;
     font-weight: bold;
     font-style: italic;
-    z-index: 11;
+    z-index: 1010;
 }
 
-#fields > .smallText {
+#fields > .smallText, #addProjectForm > .smallText {
     font-size: 11px;
     font-style: italic;
     text-align: right;
@@ -288,7 +322,7 @@ h2 {
     text-decoration: none;
 }
 
-#topBar > .btn , #formSubmit > input[type='submit'],  .projectActions > .btn, #tabs .btn{
+#topBar > .btn , #formSubmit > input[type='submit'],  .projectActions > .btn, #tabs .btn, #addProjectForm > .btn{
     position: relative;
     display: inline-block;
     padding: 1% 2%;
@@ -308,7 +342,7 @@ h2 {
     text-decoration: none;
 }
 
-#topBar > .btn:hover, #formSubmit > input[type='submit']:hover, .projectActions > .btn:hover, #tabs .btn:hover {
+#topBar > .btn:hover, #formSubmit > input[type='submit']:hover, .projectActions > .btn:hover, #tabs .btn:hover, #addProjectForm > .btn:hover {
     background: #6086cd;
     background-image: -webkit-linear-gradient(top, #6086cd, #a6c0f0);
     background-image: -moz-linear-gradient(top, #6086cd, #a6c0f0);
@@ -348,6 +382,25 @@ footer a:hover, footer a:active {
     margin: 1% 1%;
 }
 
+#addBtn1, #addBtn2 {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 30px;
+    padding: 15px 20px 15px 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+    color: #474747;
+}
+
+#addBtn2 {
+    background-color: rgba(216,247,153,1);
+}
+
+#addBtn1 {
+    background-color: rgba(167,204,93,1);
+    margin-left: 692px;
+}
+
 
 
 /* _____________________________________ */
@@ -372,13 +425,21 @@ form {
     border-top: 1px solid #555;
 }
 
-input[type='text'], input[type='email'], input[type='password'] {
+input[type='text'], input[type='email'], input[type='password'], input[type='file'], input[type='date'] {
     width: 88%;
     padding: 8px;
     font-size: 14px;
     margin: 5px 20px 20px;
     border: 1px solid #6086cd;
     color: #a7cc5d;
+}
+
+input[type='file'] {
+    background-color: #fff;
+}
+
+input[type='file'], input[type='date'] {
+    color: #bfbfbf;
 }
 
 #fields > label {
@@ -396,18 +457,27 @@ input[type='text'], input[type='email'], input[type='password'] {
 
 input::-webkit-input-placeholder {
     font-style: italic;
+    color: #bfbfbf !important;
 }
 
-input::-moz-placeholder {
+input::-moz-placeholder{
     font-style: italic;
+    color: #bfbfbf !important;
 }
 
-input:-moz-placeholder {   /* Older versions of Firefox */
+input:-moz-placeholder{   /* Older versions of Firefox */
     font-style: italic;
+    color: #bfbfbf !important;
 }
 
 input:-ms-input-placeholder {
     font-style: italic;
+    color: #bfbfbf !important;
+}
+
+#addProjectForm label {
+    margin-left: 20px;
+    font-weight: bold;
 }
 
 

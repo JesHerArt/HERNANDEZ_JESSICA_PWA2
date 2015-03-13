@@ -78,6 +78,50 @@ Full Sail University
 
         <h1>Projects</h1>
         
+        <div id="addBtns">
+            <div id="addBtn1">+<a href="#" class="modalClick"><span class="divButtonLink"></span></a></div><div id="addBtn2">Add a new project<a href="#" class="modalClick"><span class="divButtonLink"></span></a></div>
+        </div>
+        
+        <div id="overlay">
+        
+            <div id="modal">
+                <h3 class="modalHeader">Add a Project</h3><a href="#"><span class="close"><img src="images/close_btn.png"></span></a>
+                
+                <hr class="hr2">
+                
+                <div id="add">
+                    <form id="addProjectForm">
+                        <p class="smallText"><span class="redStar">*</span> Form field is required.</p>
+                    
+                        <label for="pTitle">Project Title:<span class="redStar">*</span> </label>
+                        <input name="pTitle" id="pTitle" type="text" title="Give your project a name" class="masterTooltip" placeholder="Learning jQuery" required>
+                        
+                        <label for="pDescription">Project Description:<span class="redStar">*</span> </label>
+                        <input name="pDescription" id="pDescription" type="text" title="Enter a brief description" class="masterTooltip" placeholder="WDD344-O Week 2 Project" required>
+                        
+                        <label for="pFile">Project File: </label>
+                        <input name="pFile" id="pFile" type="file" title="Browse for your document" class="masterTooltip" >
+                        
+                        <br>
+                        <label for="dueDate">Due Date:<span class="redStar">*</span> </label>
+                        <input name="dueDate" id="dueDate" type="date" title="Select the project due date" class="masterTooltip" placeholder="2015-03-13" required>
+                        
+                        <br>
+                        <label for="pStatus">Project Status:<span class="redStar">*</span> </label>
+                        <input name="pStatus" id="pStatus" type="text" title="Choose the current status of your project" class="masterTooltip" placeholder="Urgent" required>
+                        
+                        <hr class="hr2">
+                        
+                        <input name="addProjectBtn" type="submit" id="addProjectBtn" value="Add My Project" class="btn masterTooltip" title="Submit the new project to add" >
+                    </form>
+                </div>
+            
+            </div><!--End of modal div-->
+        
+        </div>
+        <!--End of overlay div-->
+        
+        
         <div class="projectBox">
 
             <!--project titles go here-->
