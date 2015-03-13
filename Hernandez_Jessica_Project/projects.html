@@ -82,7 +82,7 @@ Full Sail University
             <div id="addBtn1">+<a href="#" class="modalClick"><span class="divButtonLink"></span></a></div><div id="addBtn2">Add a new project<a href="#" class="modalClick"><span class="divButtonLink"></span></a></div>
         </div>
         
-        <div id="overlay">
+        <div class="overlay">
         
             <div id="modal">
                 <h3 class="modalHeader">Add a Project</h3><a href="#"><span class="close"><img src="images/close_btn.png"></span></a>
@@ -107,8 +107,27 @@ Full Sail University
                         <input name="dueDate" id="dueDate" type="date" title="Select the project due date" class="masterTooltip" placeholder="2015-03-13" required>
                         
                         <br>
-                        <label for="pStatus">Project Status:<span class="redStar">*</span> </label>
-                        <input name="pStatus" id="pStatus" type="text" title="Choose the current status of your project" class="masterTooltip" placeholder="Urgent" required>
+                        <label for="status">Project Status:<span class="redStar">*</span> </label>
+                        <br>
+                        <label class="pStatLabel">
+                        <input type="radio" name="status" id="urgent"><img class="pStatus" src="images/urgent.png" >
+                            <span class="statName">Urgent</span>
+                        </label>
+                        
+                        <label class="pStatLabel">
+                        <input type="radio" name="status" id="normal"><img class="pStatus" src="images/normal.png" >
+                            <span class="statName">Normal</span>
+                        </label>
+                      
+                        <label class="pStatLabel">
+                        <input type="radio" name="status" id="delayed"><img class="pStatus" src="images/delayed.png" >
+                            <span class="statName">Delayed</span>
+                        </label>
+                        
+                        <label class="pStatLabel">
+                        <input type="radio" name="status" id="complete"><img class="pStatus" src="images/complete.png" >
+                            <span class="statName">Complete</span>
+                        </label>
                         
                         <hr class="hr2">
                         
@@ -190,7 +209,7 @@ Full Sail University
     </div>
     <!--End of main content-->
 
-
+    <!--Start of footer-->
     <footer class="clear">
 
         <p><span><a href="index.html">Home</a> &nbsp;|&nbsp; </span>
@@ -199,10 +218,12 @@ Full Sail University
            <span><a href="projects.html">Projects</a> &nbsp;|&nbsp; </span>
            <span class="hide"><a href="register.html">Register</a> &nbsp;|&nbsp; </span>
            <span><a href="#">Contact</a></span>
+           <span><a href="#">Logout</a></span>
 
            <br><br>&copy; 2015 Jessica J. Hernandez - Student at Full Sail University</p>
 
     </footer>
+    <!--end of footer-->
 
 </div>
 <!--End of container-->

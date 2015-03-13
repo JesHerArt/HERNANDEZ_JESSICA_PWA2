@@ -80,7 +80,7 @@ Full Sail University
                 <div id="loginModal">
             
                     <!--Form to log into account-->
-                    <form method="POST" action="dashboard.html">
+                    <form action="dashboard.html">
                         <div id="formTitle">
                             <h2 class="modalHeader2">Login To Your Account</h2><a href="#"><span class="close close2"><img src="images/close_btn2.png"></span></a>
                         </div>
@@ -99,7 +99,7 @@ Full Sail University
                         </div>
 
                         <div id="formSubmit">
-                            <input type="submit" value="Submit" title="Click to login" class="masterTooltip" />
+                            <input type="submit" value="Login" title="Click to login" class="masterTooltip" />
                         </div>
                         <!-- ****** NOTE: I know the login button isn't supposed to do anything right now, but I tried to redirect to the dashboard.html page after typing in any information for the username and password fields. For some reason on the local files, it will take you to the dashboard.html page but when I test it live with gh-pages I get a 405 Not Allowed - nginx error. I read online that this could be fixed with JSON, which is part of week 3; so I figured this issue can be fixed when I learn about the JSON material from week 3. Just letting you know of the erro I came across and maybe you have some insight on this aside from what I read online. Thanks. ***** -->
 
@@ -110,43 +110,35 @@ Full Sail University
 
             </div><!--end of modal overlay-->
 
-            
+        
+        
         <hr>
 
-        <h1>Register</h1>
+        <h1>Login</h1>
 
-        <p>Homework On The Go is a free service for all students to manage their homework. If you'd like to use our project management system, please fill out the form below to create your account.</p>
-        <p class="small"><strong>Note:</strong> If you are a professor who would like administrative access to manage your classes, please email us at <a href="mailto:professors@HW2Go.com">professors@HW2Go.com</a>, once you have created your account using the form below.</p>
-
-        <!--Form to register for an account-->
-        <form method="POST" action="mailto:jesherart@fullsail.edu">
+        <!--Form to log into account-->
+        <form method="POST" action="dashboard.html">
             <div id="formTitle">
-                 <h2>Create an Account</h2>
+                 <h2>Login To Your Account</h2>
             </div>
 
             <div id="fields">
                 <br>
-                <p class="smallText"><span class="redStar">*</span> Form field is required.</p>
-                <label for="firstName">First Name:<span class="redStar">*</span></label>
-                <input type="text" name="firstName" id="firstName" placeholder="Jessica" required title="Please enter your first name" class="masterTooltip" />
+                <label for="userName">Username:</label>
+                <input type="text" name="userName" id="userName" placeholder="JesHerArt" required title="Please enter your username" class="masterTooltip" />
 
-                <label for="lastName">Last Name:<span class="redStar">*</span></label>
-                <input type="text" name="lastName" id="lastName" placeholder="Hernandez" required title="Please enter your last name" class="masterTooltip" />
-
-                <label for="email">Email Address:<span class="redStar">*</span></label>
-                <input type="email" name="email" id="email" placeholder="someone@domain.com" required title="Please enter a valid email address" class="masterTooltip" />
-
-                <label for="passWord">Password:<span class="redStar">*</span></label>
-                <input type="password" name="passWord" id="passWord" placeholder="Enter a password" required title="Password is case sensitive" class="masterTooltip" />
-
-                <label for="passWordConfirm">Retype Password:<span class="redStar">*</span></label>
-                <input type="password" name="passWordConfirm" id="passWordConfirm" placeholder="Retype password" required title="Password is case sensitive" class="masterTooltip" />
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="••••••••" required title="Please enter your password" class="masterTooltip" />
+                
+                <br>
+                <p class="smallText"><a href="#">Forgot Password?</a></p>
 
             </div>
 
             <div id="formSubmit">
-                <input type="submit" value="Submit" title="Click to submit your registration form" class="masterTooltip" />
+                <input type="submit" value="Submit" title="Click to login" class="masterTooltip" />
             </div>
+            <!-- ****** NOTE: I know the login button isn't supposed to do anything right now, but I tried to redirect to the dashboard.html page after typing in any information for the username and password fields. For some reason on the local files, it will take you to the dashboard.html page but when I test it live with gh-pages I get a 405 Not Allowed - nginx error. I read online that this could be fixed with JSON, which is part of week 3; so I figured this issue can be fixed when I learn about the JSON material from week 3. Just letting you know of the erro I came across and maybe you have some insight on this aside from what I read online. Thanks. ***** -->
 
         </form>
         <!--end of form-->
@@ -157,21 +149,21 @@ Full Sail University
 
 
     <!--Start of footer-->
-    <footer class="clear">
+        <footer class="clear">
 
-        <p><span><a href="index.html">Home</a> &nbsp;|&nbsp; </span>
-           <span><a href="login.html">Login</a> &nbsp;|&nbsp; </span>
-           <span><a href="#">About</a> &nbsp;|&nbsp; </span>
-           <span class="hide"><a href="dashboard.html">Dashboard</a> &nbsp;|&nbsp; </span>
-           <span class="hide"><a href="projects.html">Projects</a> &nbsp;|&nbsp; </span>
-           <span><a href="register.html">Register</a> &nbsp;|&nbsp; </span>
-           <span><a href="#">Contact</a></span>
-           <span class="hide"><a href="#">Logout</a></span>
+            <p><span><a href="index.html">Home</a> &nbsp;|&nbsp; </span>
+               <span><a href="login.html">Login</a> &nbsp;|&nbsp; </span>
+               <span><a href="#">About</a> &nbsp;|&nbsp; </span>
+               <span class="hide"><a href="dashboard.html">Dashboard</a> &nbsp;|&nbsp; </span>
+               <span class="hide"><a href="projects.html">Projects</a> &nbsp;|&nbsp; </span>
+               <span><a href="register.html">Register</a> &nbsp;|&nbsp; </span>
+               <span><a href="#">Contact</a></span>
+               <span class="hide"><a href="#">Logout</a></span>
 
-       <br><br>&copy; 2015 Jessica J. Hernandez - Student at Full Sail University</p>
+           <br><br>&copy; 2015 Jessica J. Hernandez - Student at Full Sail University</p>
 
-    </footer>
-    <!--End of footer-->
+        </footer>
+        <!--End of footer-->
 
 </div>
 <!--End of container-->

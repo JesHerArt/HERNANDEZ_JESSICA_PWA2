@@ -65,17 +65,18 @@ Full Sail University
     //  Overlay and modal actions
     $('.modalClick').on('click', function (event) {
         event.preventDefault();
-        $('#overlay').fadeIn().find('#modal').fadeIn();
+        $('.overlay').fadeIn().find('#modal').fadeIn();
+        $('.overlay').fadeIn().find('#loginModal').fadeIn();
     });
     
     $('.close').on('click', function (event) {
         event.preventDefault();
-        $('#overlay').fadeOut().find('#modal').fadeOut(); 
+        $('.overlay').fadeOut().find('#modal').fadeOut(); 
     });
     
     
     
-    //  Fade add project button
+    //  Fade in add-project button
     $('#addBtns').fadeTo(100, 0.6);
     
     $('#addBtn1, #addBtn2').mouseover( function () {
@@ -94,8 +95,17 @@ Full Sail University
     });
     
     
-                         
-	
+    
+    //  Fading of the status images in the modal
+    $('.pStatus').mouseover(function () {
+        $(this).fadeTo(100, 0.6); 
+    });
+    
+    $('.pStatus').mouseout(function () {
+        $(this).fadeTo(100, 1);  
+    });
+    
+    
 })(jQuery); // end private scope
 
 

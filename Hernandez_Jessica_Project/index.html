@@ -57,7 +57,7 @@ Full Sail University
         <!--The header holds the login/register buttons, logo, and the navigation-->
         <header>
             <div id="topBar">
-                <div class="btn">Login<a href="dashboard.html"><span class="divButtonLink"></span></a></div>
+                <div class="btn">Login<a href="#" class="modalClick"><span class="divButtonLink"></span></a></div>
                 <div class="btn">Register<a href="register.html"><span class="divButtonLink"></span></a></div>
             </div>
 
@@ -80,7 +80,45 @@ Full Sail University
 
         <!--Main content holds all the changing content for each page-->
         <div id="mainContent">
+            
+            <!--Modal for logging in begins here, hidden until called with jQuery by clicking login button-->
+            <div class="overlay">
+                
+                <div id="loginModal">
+            
+                    <!--Form to log into account-->
+                    <form method="POST" action="dashboard.html">
+                        <div id="formTitle">
+                            <h2 class="modalHeader2">Login To Your Account</h2><a href="#"><span class="close close2"><img src="images/close_btn2.png"></span></a>
+                        </div>
 
+                        <div id="fields">
+                            <br>
+                            <label for="userName">Username:</label>
+                            <input type="text" name="userName" id="userName" placeholder="JesHerArt" required title="Please enter your username" class="masterTooltip" />
+
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••" required title="Please enter your password" class="masterTooltip" />
+                            
+                            <br>
+                            <p class="smallText"><a href="#">Forgot Password?</a></p>
+
+                        </div>
+
+                        <div id="formSubmit">
+                            <input type="submit" value="Submit" title="Click to login" class="masterTooltip" />
+                        </div>
+                        <!-- ****** NOTE: I know the login button isn't supposed to do anything right now, but I tried to redirect to the dashboard.html page after typing in any information for the username and password fields. For some reason on the local files, it will take you to the dashboard.html page but when I test it live with gh-pages I get a 405 Not Allowed - nginx error. I read online that this could be fixed with JSON, which is part of week 3; so I figured this issue can be fixed when I learn about the JSON material from week 3. Just letting you know of the erro I came across and maybe you have some insight on this aside from what I read online. Thanks. ***** -->
+
+                    </form>
+                    <!--end of form-->
+                    
+                </div> <!--end of login modal-->
+
+            </div><!--end of modal overlay-->
+
+            
+            
             <hr>
 
             <!--Call to action section-->
@@ -147,12 +185,13 @@ Full Sail University
         <footer class="clear">
 
             <p><span><a href="index.html">Home</a> &nbsp;|&nbsp; </span>
-               <span><a href="dashboard.html">Login</a> &nbsp;|&nbsp; </span>
+               <span><a href="login.html">Login</a> &nbsp;|&nbsp; </span>
                <span><a href="#">About</a> &nbsp;|&nbsp; </span>
                <span class="hide"><a href="dashboard.html">Dashboard</a> &nbsp;|&nbsp; </span>
                <span class="hide"><a href="projects.html">Projects</a> &nbsp;|&nbsp; </span>
                <span><a href="register.html">Register</a> &nbsp;|&nbsp; </span>
                <span><a href="#">Contact</a></span>
+               <span class="hide"><a href="#">Logout</a></span>
 
            <br><br>&copy; 2015 Jessica J. Hernandez - Student at Full Sail University</p>
 

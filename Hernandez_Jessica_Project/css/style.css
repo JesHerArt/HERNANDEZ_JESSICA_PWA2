@@ -22,6 +22,7 @@ body {
 #container {
     width: 960px;
     margin: 0 auto;
+    position: relative;
 }
 
 header {
@@ -169,15 +170,17 @@ nav {
     border-bottom: 2px solid #f4f3f2;
 }
 
-#overlay {
+.overlay {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1000;
     display: none;
-    background: rgba(240, 248, 255, 0.36);
+    background: rgba(240, 248, 255, 0.6);
 }
 
 #modal {
@@ -193,8 +196,35 @@ nav {
     padding: 20px;
 }
 
+#loginModal {
+    width: 500px;
+    box-shadow: 0 0 30px #2b2b2b;
+    position: relative;
+    top: 5%;
+    left: 35%;
+    z-index: 1001;
+    display: none;
+}
+
 .close {
     margin-left: 285px;
+    display: inline-block;
+}
+
+.close2 {
+    margin-left: 180px;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+}
+
+.pStatus {
+    width: 90px;
+    height: 90px;
+    margin: 7px 4px 4px;
+}
+
+.pStatLabel{
     display: inline-block;
 }
 
@@ -220,6 +250,11 @@ h2 {
     vertical-align: middle;
     font-weight: bold;
     font-size: 22px;
+}
+
+.modalHeader2 {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 #benefits {
@@ -276,6 +311,12 @@ h2 {
 
 .redStar {
     color: #ef6752;
+}
+
+.statName {
+    display: block;
+    width: 90px;
+    text-align: center;
 }
 
 
@@ -401,6 +442,10 @@ footer a:hover, footer a:active {
     margin-left: 692px;
 }
 
+#addProjectForm > input[type='submit'] {
+    margin: 0 0 0 350px;
+}
+
 
 
 /* _____________________________________ */
@@ -479,6 +524,21 @@ input:-ms-input-placeholder {
     margin-left: 20px;
     font-weight: bold;
 }
+
+.pStatLabel > input[type='radio'] {
+    display: none;
+}
+
+input[type='radio'] + img {
+    cursor: pointer;
+}
+
+input[type='radio']:checked + img {
+    border: 2px solid #c4fbe6;
+}
+
+
+
 
 
 
