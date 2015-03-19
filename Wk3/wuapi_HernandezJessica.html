@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+
+<!--
+Jessica J. Hernandez
+March 17, 2015
+Programming for We Applications 2
+201503-01
+-->
+
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Weather API</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+<style>
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	background-color:#9ED6FF;
+}
+
+#container{
+	width: 90%;
+	margin: 0 auto;
+	height: 600px;
+}
+
+.left {
+	width: 45%;
+	padding: 2%;
+	float: left;
+}
+
+.right {
+	width: 45%;
+	padding: 2%;
+	float: right;
+}
+
+h1 {
+	text-align: center;
+	padding: 2%;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<div id="container">
+<header> 
+	<h1>Weather Underground API</h1>
+</header>
+
+<div class="left">
+<h2>Your Three Day Forecast Summary</h2>
+<p class="three">
+<!--1. Display the three day Forecast Summary here-->
+    
+</p>
+<h2>Your 10-day Forecast Summary</h2>
+<p class="tenDay">
+<!--2. Display the 10-day forecast summary feature here-->
+    
+</p>
+</div><!--Closes Leftr-->
+
+<div class="right">
+<h2>Your Hourly 1-day Forecast</h2>
+<p class="hourFore">
+<!--3. Display the Hourly 1-day forecast feature here-->
+    
+</p>
+
+<h2>Your Astronomy Summary</h2>
+<p class="astro">
+<!--4. Display the WU Astronomy feature here-->
+    
+</p>
+
+<h2>Your Almanac For Today</h2>
+<p class="almanac">
+<!--5. Display the Almanac for today feature here-->
+    
+</p>
+</div><!--Closes Right-->
+</div><!--Closes Container-->
+
+
+<!--Link to jQuery Library-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> 
+<script>
+$(document).ready(function($){
+	
+<!--This is an example of how to embed Geolookup. Use your own API key and city location-->	
+	/*$.ajax({ 
+		url : "http://api.wunderground.com/api/552039051524b027/geolookup/conditions/q/FL/Miami.json",
+		dataType : "jsonp", 
+          success : function(parsed_json) { 
+              var location = parsed_json['location']['city']; 
+              var temp_f = parsed_json['current_observation']['temp_f'];
+                  $(".three").html("Current temperature in " + location + " is: " + temp_f+"ºF");
+          } 
+	});*/
+	
+<!--Use your own API key and city location-->
+<!--1.Embed the WU 3-day forecast summary feature.-->
+<!--Your Code Here-->
+    
+    $.ajax({ 
+		url : "http://api.wunderground.com/api/552039051524b027/forecast/q/FL/Miami.json",
+		dataType : "jsonp", 
+            success : function(threeDayForecast) { 
+              
+                $(threeDayForecast.forecast.simpleforecast.forecastday).each(function( index ) {
+                    
+                    // Adding +1 so the current day doesn't count
+                    var currentForecast = threeDayForecast.forecast.simpleforecast.forecastday[index + 1];
+                    
+                    // Making sure only 3 forecasts are displayed
+                    if ( index <= 4) {
+                        
+                        // Create a concatenating string by continuing to add on to the variable
+                        var threeDayForecastOutput = "<p><strong>";
+                        threeDayForecastOutput += currentForecast.date.weekday + ", ";
+                        threeDayForecastOutput += currentForecast.date.monthname + " ";
+                        threeDayForecastOutput += currentForecast.date.day + ", ";
+                        threeDayForecastOutput += currentForecast.date.year + "</strong><br>";
+                        threeDayForecastOutput += currentForecast.conditions + ". ";
+                        threeDayForecastOutput += "Low temp: " + currentForecast.low.fahrenheit + "ºF. ";
+                        threeDayForecastOutput += "High temp: " + currentForecast.high.fahrenheit + "ºF. ";
+                        threeDayForecastOutput += "Average Winds: " + currentForecast.avewind.dir;
+                        threeDayForecastOutput += " @ " + currentForecast.avewind.mph + " mph.</p>";
+
+                        // Append the concatenated string to the html
+                        $(".three").append(threeDayForecastOutput);
+                        
+                    }
+                  
+                });
+            }
+	});
+
+
+<!--2.Embed the WU 10-day forecast summary feature.-->	
+<!--Your Code Here-->
+    
+    $.ajax({ 
+        url : "http://api.wunderground.com/api/552039051524b027/forecast10day/q/FL/Miami.json",
+		dataType : "jsonp", 
+            success : function(tenDayForecastData) { 
+              
+                $(tenDayForecastData.forecast.simpleforecast.forecastday).each(function( index ) {
+                  
+                    var currentForecast = tenDayForecastData.forecast.simpleforecast.forecastday[index];
+                 
+                    // Create variables for each data I want to use.
+                    var weekDay = currentForecast.date.weekday;
+                    var month = currentForecast.date.monthname;
+                    var day = currentForecast.date.day;
+                    var year = currentForecast.date.year;
+                    var conditions = currentForecast.conditions;
+                    var lowTemp = currentForecast.low.fahrenheit;
+                    var highTemp = currentForecast.high.fahrenheit;
+                    var avgWindsDirection = currentForecast.avewind.dir;
+                    var avgWindsMph = currentForecast.avewind.mph;
+                    
+                    // Create a concatenated string to append to the html
+                    $(".tenDay").append("<p><strong>" + weekDay + ", " + month + " " + day + ", " + year + "</strong><br>" + conditions + ". Low temp: " + lowTemp + "ºF. High Temp: " + highTemp + "ºF. Average Winds: " + avgWindsDirection + " @ " + avgWindsMph + " mph.</p>");
+                    
+              });
+              
+          } 
+	});
+	
+
+<!--3.Embed the WU Hourly 1-day forecast feature.-->	
+<!--Your Code Here-->
+    
+    $.ajax({ 
+		url : "http://api.wunderground.com/api/552039051524b027/hourly/q/FL/Miami.json",
+		dataType : "jsonp", 
+          success : function(hourlyForecast) { 
+              
+              $(hourlyForecast.hourly_forecast).each(function( index ) {
+                  
+                    var currentForecast = hourlyForecast.hourly_forecast[index];
+                  
+                    // Saving the day of the month to a variable
+                    var currentDay = hourlyForecast.hourly_forecast[0].FCTTIME.mday;
+                  
+                    // Used to grab the current day and time and append to the html
+                    if ( index < 1 ) {
+                        
+                        var weekday = currentForecast.FCTTIME.weekday_name;
+                        var currentTime = currentForecast.FCTTIME.civil;
+                        $(".hourFore").append("<p><strong>" + weekday + "'s Hourly Forecast as of " + currentTime + "</strong></p>");
+                        
+                    }
+                  
+                    // Mkaing sure only the hourly data that coincides with the currentDay gets used
+                    if ( currentDay == currentForecast.FCTTIME.mday ) {
+                
+                        // Create variables for each data I want to use.
+                        var dayAndTime = currentForecast.FCTTIME.pretty;
+                        var conditions = currentForecast.condition;
+                        var temp = currentForecast.temp.english;
+                        var feelsLike = currentForecast.feelslike.english;
+                        var windDirection = currentForecast.wdir.dir;
+                        var windMph = currentForecast.wspd.english;
+
+                        // Create a concatenated string to append to the html
+                        $(".hourFore").append("<p>" + dayAndTime + "<br>Condition: " + conditions + ". Current Temp: " + temp + "ºF; But feels like: " + feelsLike + "ºF. Winds going " + windDirection + " @ " + windMph + " mph.</p>" );
+                    }
+              });
+              
+          } 
+	});
+
+
+
+<!--4.Embed the WU Astronomy feature.-->	
+<!--Your Code Here-->
+    
+    $.ajax({ 
+		url : "http://api.wunderground.com/api/552039051524b027/astronomy/q/FL/Miami.json",
+		dataType : "jsonp", 
+          success : function(parsed_json) { 
+              
+              // Create variables for each data I want to use.
+              var moonPercent = parsed_json['moon_phase']['percentIlluminated']; 
+              var moonAge = parsed_json['moon_phase']['ageOfMoon'];
+              var currentTimeHour = parsed_json['moon_phase']['current_time']['hour'];
+              var currentTimeMin = parsed_json['moon_phase']['current_time']['minute'];
+              var sunriseHour = parsed_json['moon_phase']['sunrise']['hour'];
+              var sunriseMin = parsed_json['moon_phase']['sunrise']['minute'];
+              var sunsetHour = parsed_json['moon_phase']['sunset']['hour'];
+              var sunsetMin = parsed_json['moon_phase']['sunset']['minute'];
+                  
+              // Create a concatenated string to append to the html
+              $(".astro").html("Moon Illumination: " + moonPercent + "%<br>Moon Age: " + moonAge + "<br>Current Time: " + currentTimeHour + ":" + currentTimeMin + "<br>Sunrise: " + sunriseHour + ":" + sunriseMin + "<br>Sunset: " + sunsetHour + ":" + sunsetMin);
+          } 
+	});
+	
+
+<!--5.Embed the WU Almanac for today feature.-->	
+<!--Your Code Here-->
+    
+    $.ajax({ 
+		url : "http://api.wunderground.com/api/552039051524b027/almanac/q/FL/Miami.json",
+		dataType : "jsonp", 
+          success : function(parsed_json) { 
+              
+              // Create variables for each data I want to use.
+              var airport = parsed_json['almanac']['airport_code']; 
+              var avgHigh = parsed_json['almanac']['temp_high']['normal']['F'];
+              var recHigh = parsed_json['almanac']['temp_high']['record']['F'];
+              var recHighYear = parsed_json['almanac']['temp_high']['recordyear'];
+              var avgLow = parsed_json['almanac']['temp_low']['normal']['F'];
+              var recLow = parsed_json['almanac']['temp_low']['record']['F'];
+              var recLowYear = parsed_json['almanac']['temp_low']['recordyear'];
+              
+              // Create a concatenated string to append to the html
+              $(".almanac").html("Local Airport: " + airport + "<br><br>Average High: " + avgHigh + "ºF<br>Record High: " + recHigh + "ºF<br>Record Year: " + recHighYear + "<br><br>Average Low: " + avgLow + "ºF<br>Record Low: " + recLow + "ºF<br>Record Year: " + recLowYear);
+          } 
+	});
+    
+});  //Closes Doc Ready Function
+
+</script>
+
+</body>
+</html>
