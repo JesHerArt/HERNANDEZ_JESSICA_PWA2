@@ -87,7 +87,7 @@ Full Sail University
                 <div id="loginModal">
             
                     <!--Form to log into account-->
-                    <form method="POST" action="dashboard.html">
+                    <form>
                         <div id="formTitle">
                             <h2 class="modalHeader2">Login To Your Account</h2><a href="#"><span class="close close2"><img src="images/close_btn2.png"></span></a>
                         </div>
@@ -106,9 +106,8 @@ Full Sail University
                         </div>
 
                         <div id="formSubmit">
-                            <input type="submit" value="Submit" title="Click to login" class="masterTooltip" />
+                            <input type="submit" value="Submit" title="Click to login" class="masterTooltip signInButton" />
                         </div>
-                        <!-- ****** NOTE: I know the login button isn't supposed to do anything right now, but I tried to redirect to the dashboard.html page after typing in any information for the username and password fields. For some reason on the local files, it will take you to the dashboard.html page but when I test it live with gh-pages I get a 405 Not Allowed - nginx error. I read online that this could be fixed with JSON, which is part of week 3; so I figured this issue can be fixed when I learn about the JSON material from week 3. Just letting you know of the erro I came across and maybe you have some insight on this aside from what I read online. Thanks. ***** -->
 
                     </form>
                     <!--end of form-->

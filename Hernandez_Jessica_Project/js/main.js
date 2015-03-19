@@ -1,7 +1,7 @@
 /*  
 Jessica J. Hernandez
 ID: 0004631401
-March 6, 2015 - March 13, 2015 (Project Week 2)
+March 14, 2015 - March 20, 2015 (Project Week 2)
 Programming for Web Applications 2 | 201503-01
 Professor: Crystal Silvestro
 Full Sail University
@@ -79,11 +79,11 @@ Full Sail University
     //  Fade in add-project button
     $('#addBtns').fadeTo(100, 0.6);
     
-    $('#addBtn1, #addBtn2').mouseover( function () {
+    $('#addBtn1, #addBtn2').mouseover(function () {
         $('#addBtns').fadeTo(100, 1);  
     });
     
-    $('#addBtn1, #addBtn2').mouseout( function () {
+    $('#addBtn1, #addBtn2').mouseout(function () {
         $('#addBtns').fadeTo(100, 0.6);  
     });
     
@@ -103,6 +103,78 @@ Full Sail University
     
     $('.pStatus').mouseout(function () {
         $(this).fadeTo(100, 1);  
+    });
+    
+    
+    
+    //  Logging in
+    $('.signInButton').click(function (e) {
+        e.preventDefault();
+        
+        var user = $('#userName').val();
+        var pass = $('#password').val();
+        
+        $.ajax({
+            url: 'xhr/login.php',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                username: user,
+                password: pass
+            },
+            success: function (response) {
+                if (response.error) {
+                    alert(response.error);
+                } else {
+                    window.location.assign('dashboard.html');
+                }
+            }
+        });
+    });
+    
+    
+    
+    //  Logging Out
+    $('.logout').click(function (e) {
+        e.preventDefault();
+        
+        $.get('xhr/logout.php', function () {
+            window.location.assign('index.html');
+        });
+    });
+    
+    
+    
+    //  Register Page
+    $('#registerBtn').click(function (e) {
+         e.preventDefault();
+        
+        var firstname = $('#firstName').val();
+            lastname = $('#lastName').val();
+            username = $('#usersname').val();
+            email = $('#email').val();
+            password = $('#passWord').val();
+        
+        $.ajax({
+           url: 'xhr/register.php',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                firstname: firstname,
+                lastname: lastname,
+                username: username,
+                email: email,
+                password: password
+            },
+            
+            success: function(response) {
+                if (response.error) {
+                    alert(response.error);
+                } else {
+                    window.location.assign('login.html');
+                }
+            }
+        });
     });
     
     
