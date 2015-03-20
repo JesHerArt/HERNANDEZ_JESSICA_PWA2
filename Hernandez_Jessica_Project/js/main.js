@@ -1,7 +1,7 @@
 /*  
 Jessica J. Hernandez
 ID: 0004631401
-March 14, 2015 - March 20, 2015 (Project Week 2)
+March 14, 2015 - March 20, 2015 (Project Week 3)
 Programming for Web Applications 2 | 201503-01
 Professor: Crystal Silvestro
 Full Sail University
@@ -76,7 +76,7 @@ Full Sail University
     
     
     
-    //  Fade in add-project button
+    //  Fade in main add-project button on projects.html
     $('#addBtns').fadeTo(100, 0.6);
     
     $('#addBtn1, #addBtn2').mouseover(function () {
@@ -89,7 +89,7 @@ Full Sail University
     
     
     
-    //  Editing the placeholder text color for input[type="file"] and input[type="date"
+    //  Editing the placeholder text color for input[type="file"] and input[type="date"]
     $('#pFile, #dueDate').on('click', function () {
        $(this).css({'color':'#a7cc5d'}); 
     });
@@ -167,7 +167,7 @@ Full Sail University
                 password: password
             },
             
-            success: function(response) {
+            success: function (response) {
                 if (response.error) {
                     alert(response.error);
                 } else {
@@ -176,6 +176,99 @@ Full Sail University
             }
         });
     });
+    
+    
+    
+    //  Displaying the username on top bar of dashboard & projects when logged into account
+    $.getJSON("xhr/check_login.php", function (data) {
+        $.each(data, function (key, val) {
+            $('#welcomeText').append("Welcome, " + val.first_name + "!");
+        });
+    });
+    
+    
+    
+    //  Functionality of the add new project button of the modal
+    $('#addProjectBtn').on('click', function () {
+       
+        var projName = $('#pTitle').val();
+            projDesc = $('#pDescription').val();
+            projDue = $('#dueDate').val();
+            status = $('input[name = "status"]:checked').prop("id");
+        
+        $.ajax({
+            url: "xhr/new_project.php",
+            type: "post",
+            dataType: "json",
+            data: {
+                projectName: projName,
+                projectDescription: projDesc,
+                dueDate: projDue,
+                status: status
+            },
+            success: function (response) {
+                if (response.error) {
+                    alert(response.error);
+                } else {
+                    window.location.assign('projects.html');
+                }
+            }
+        });
+    });
+    
+    
+    
+    //  Getting the projects from the database to display
+    var projects = function () {
+        
+        $.ajax({
+            url: 'xhr/get_projects.php',
+            type: 'get',
+            dataType: 'json',
+            success: function (response) {
+                if (response.error) {
+                    console.log(response.error);
+                } else {
+                
+                    for (var i=0, j=response.projects.length; i < j; i++){
+                        var result = response.projects[i];
+                        
+                        $("#projectsContainer").append(
+                        '<div class="projectBox"><input class="projectid" type="hidden" value="' + result.id + '"><!--project title goes here--><div class="projectTitle"><h2>' + result.projectName + '</h2></div><!--details for projects go here--><div class="projectDetails"><p><strong>Description:</strong> ' + result.projectDescription + '</p><p><strong>File Name:</strong> </p><p><strong>Due Date:</strong> ' + result.dueDate + '</p><p><strong>Status:</strong> ' + result.status + '</p><p><strong>Course:</strong> </p><p><strong>Professor:</strong> </p><p><strong>Collaborators:</strong> </p><p><strong>Grade:</strong> </p></div><!--actions to do to the project are here--><div class="projectActions"><div class="btn">Edit<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Update Priority<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Download File<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Add Note<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Submit for Grading<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Delete<a href="#" class="deleteBtn"><span class="divButtonLink"></span></a></div></div><hr class="hr2"></div>');
+                    } /*End of for loop*/
+                    
+                    $('.deleteBtn').on('click', function (e) {
+                        e.preventDefault();
+                        
+                        var currentProjectID = $(this).closest('.projectBox').find('input[class = "projectid"]').prop("value");
+                        
+                        console.log("You've deleted project ID: " + currentProjectID);
+                        
+                        console.log('test delete');
+                        $.ajax({
+                            url: 'xhr/delete_project.php',
+                            data: {
+                                projectID: currentProjectID
+                            },
+                            type: 'post',
+                            dataType: 'json',
+                            success: function (response) {
+                                console.log('testing for success');
+                                
+                                if (response.error) {
+                                    alert(response.error);
+                                } else {
+                                    window.location.assign("projects.html");
+                                }
+                            }
+                        });
+                    }); /*End of delete btn on click*/
+                    
+                }  /*End of else statement*/
+            }  /*End of success function*/
+        });  /*End of ajax function inside of projects var*/
+    };  /*End of projects var*/
+    projects();
     
     
 })(jQuery); // end private scope
