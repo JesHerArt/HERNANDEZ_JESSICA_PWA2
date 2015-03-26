@@ -3,7 +3,7 @@
 <!--
 Jessica J. Hernandez
 ID: 0004631401
-March 14, 2015 - March 20, 2015 (Project Week 3)
+March 20, 2015 - March 27, 2015 (Project Week 4)
 Programming for Web Applications 2 | 201503-01
 Professor: Crystal Silvestro
 Full Sail University
@@ -21,14 +21,17 @@ Full Sail University
 
     <!--  Mobile viewport optimized: j.mp/bplateviewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- CSS concatenated and minified via ant build script-->
-    <link rel="stylesheet" href="css/style.css?v=1">
-    <!-- end CSS-->
-
+    
     <!--Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Arimo:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Averia+Serif+Libre:400,300italic' rel='stylesheet' type='text/css'>
+
+    <!-- CSS concatenated and minified via ant build script-->
+    <link rel="stylesheet" href="css/style.css?v=1">
+    <link rel="stylesheet" href="css/custom_theme/jquery-ui.css">
+    <link rel="stylesheet" href="css/custom_theme/jquery-ui.structure.css">
+    <link rel="stylesheet" href="css/custom_theme/jquery-ui.theme.css">
+    <!-- end CSS-->
 
     <!--Favicon-->
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -77,40 +80,30 @@ Full Sail University
         <hr>
 
         <h1>Dashboard</h1>
-        
-        <!--Start of div to contain the tabs info-->
-        <div>
-            <!--List of the tabs navigation goes here before the content-->
-            <ul id="tabs-nav">
-                <li class="current"><div>Projects<a href="#projects"><span class="divButtonLink"></span></a></div></li>
-                
-                <li><div>Tasks<a href="#tasks"><span class="divButtonLink"></span></a></div></li>
-                
-                <li><div>Users<a href="#users"><span class="divButtonLink"></span></a></div></li>
 
-            </ul>
+        <div id="tabs" class="ui-tabs">
+          <ul class="ui-tabs-nav">
+            <li class="ui-tabs-active"><a href="#tabs-1">Projects</a></li>
+            <li><a href="#tabs-2">Tasks</a></li>
+            <li><a href="#tabs-3">Users</a></li>
+          </ul>
             
-            <!--Content of each tab goes here-->
-            <div id="tabs"> 
+          <div id="tabs-1" class="ui-tabs-panel">
+            <p>Your projects portal contains all the projects you have uploaded to your account. You may chnage the status/priority of your projects, update collaborators, and keep an eye on your due dates. If your professors have an account, they can also add you to their class and therefore give your project a grade straight through our site.</p>
+            <div class="btn">Go to Projects<a href="projects.html"><span class="divButtonLink"></span></a></div>
+          </div>
             
-                <div id="projects">
-                    <p>Your projects portal contains all the projects you have uploaded to your account. You may chnage the status/priority of your projects, update collaborators, and keep an eye on your due dates. If your professors have an account, they can also add you to their class and therefore give your project a grade straight through our site.</p>
-                    <div class="btn">Go to Projects<a href="projects.html"><span class="divButtonLink"></span></a></div>
-                </div>
-                
-                <div id="tasks">
-                    <p>Each of your projects have a set todo/check list that you can add as noted to your projects. Always keep track of what your requirements are for each porject that way you always make sure to not miss any details on your projects.</p>
-                    <div class="btn">Go to Tasks<a href="#"><span class="divButtonLink"></span></a></div>
-                </div>
-                
-                <div id="users">
-                    <p>This section is to monitor which other students and/or professors are collaborators on your projects.<br><br>At the moment you don't have any collaborators. Check back again when you add users.</p>
-                    <div class="btn">Go to Users<a href="#"><span class="divButtonLink"></span></a></div>
-                </div>
+          <div id="tabs-2" class="ui-tabs-panel">
+            <p>Each of your projects have a set todo/check list that you can add as noted to your projects. Always keep track of what your requirements are for each porject that way you always make sure to not miss any details on your projects.</p>
+            <div class="btn">Go to Tasks<a href="#"><span class="divButtonLink"></span></a></div>
+          </div>
             
-            </div>
+          <div id="tabs-3" class="ui-tabs-panel">
+            <p>This section is to monitor which other students and/or professors are collaborators on your projects.<br><br>At the moment you don't have any collaborators. Check back again when you add users.</p>
+            <div class="btn">Go to Users<a href="#"><span class="divButtonLink"></span></a></div>
+          </div>
         </div>
-        <!--End of div containing tabs info-->
+        
         
     </div>
     <!--End of main content-->
@@ -138,6 +131,7 @@ Full Sail University
 
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/plugins/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 <!-- plugins -->
 
 

@@ -3,7 +3,7 @@
 <!--
 Jessica J. Hernandez
 ID: 0004631401
-March 14, 2015 - March 20, 2015 (Project Week 3)
+March 20, 2015 - March 27, 2015 (Project Week 4)
 Programming for Web Applications 2 | 201503-01
 Professor: Crystal Silvestro
 Full Sail University
@@ -24,6 +24,9 @@ Full Sail University
 
     <!-- CSS concatenated and minified via ant build script-->
     <link rel="stylesheet" href="css/style.css?v=1">
+    <link rel="stylesheet" href="css/custom_theme/jquery-ui.css">
+    <link rel="stylesheet" href="css/custom_theme/jquery-ui.structure.css">
+    <link rel="stylesheet" href="css/custom_theme/jquery-ui.theme.css">
     <!-- end CSS-->
 
     <!--Google Fonts-->
@@ -82,6 +85,11 @@ Full Sail University
             <div id="addBtn1">+<a href="#" class="modalClick"><span class="divButtonLink"></span></a></div><div id="addBtn2">Add a new project<a href="#" class="modalClick"><span class="divButtonLink"></span></a></div>
         </div>
         
+        <div id="dialog-confirm" title="Confirm Deletion">
+            <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span><strong>WARNING!</strong><br><br><br>The project <span id="titleInsert"></span> will be permanently deleted and cannot be recovered. Are you sure you want to continue?</p>
+        </div>
+        
+        
         <div class="overlay">
         
             <div id="modal">
@@ -99,12 +107,24 @@ Full Sail University
                         <label for="pDescription">Project Description:<span class="redStar">*</span> </label>
                         <input name="pDescription" id="pDescription" type="text" title="Enter a brief description" class="masterTooltip" placeholder="WDD344-O Week 2 Project" required>
                         
+                        <label for="course" class="courseMenu">Course:</label>
+                        <select name="course" id="course" class="courseMenu">
+                          <optgroup label="Full Sail University">
+                            <option value="pwa2" class="ui-selectmenu-text">Programming for Web Applications 2</option>
+                            <option value="wsp" class="ui-selectmenu-text">Web Standards Project</option>
+                          </optgroup>
+                          <optgroup label="Florida International University">
+                            <option value="webman" class="ui-selectmenu-text">Website Construction and Management</option>
+                            <option value="net" class="ui-selectmenu-text">Applied Computer Networking</option>
+                          </optgroup>
+                        </select>
+       
                         <label for="pFile">Project File: </label>
                         <input name="pFile" id="pFile" type="file" title="Browse for your document" class="masterTooltip" >
                         
                         <br>
                         <label for="dueDate">Due Date:<span class="redStar">*</span> </label>
-                        <input name="dueDate" id="dueDate" type="date" title="Select the project due date" class="masterTooltip" placeholder="2015-03-13" required>
+                        <input name="dueDate" id="dueDate" type="text" title="Select the project due date" class="masterTooltip myDatePicker" required>
                         
                         <br>
                         <label for="status">Project Status:<span class="redStar">*</span> </label>
@@ -140,10 +160,12 @@ Full Sail University
         </div>
         <!--End of overlay div-->
         
-        <div id="projectsContainer">
+        <div id="sortable" class="projectsContainer">
         
         
         </div> <!--End of projectsContainer-->
+        
+        <div class="clear"></div>
         
     </div>
     <!--End of main content-->
@@ -170,6 +192,7 @@ Full Sail University
 
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/plugins/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 <!-- plugins -->
 
 

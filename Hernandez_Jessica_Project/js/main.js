@@ -1,7 +1,7 @@
 /*  
 Jessica J. Hernandez
 ID: 0004631401
-March 14, 2015 - March 20, 2015 (Project Week 3)
+March 20, 2015 - March 27, 2015 (Project Week 4)
 Programming for Web Applications 2 | 201503-01
 Professor: Crystal Silvestro
 Full Sail University
@@ -233,18 +233,72 @@ Full Sail University
                     for (var i=0, j=response.projects.length; i < j; i++){
                         var result = response.projects[i];
                         
-                        $("#projectsContainer").append(
-                        '<div class="projectBox"><input class="projectid" type="hidden" value="' + result.id + '"><!--project title goes here--><div class="projectTitle"><h2>' + result.projectName + '</h2></div><!--details for projects go here--><div class="projectDetails"><p><strong>Description:</strong> ' + result.projectDescription + '</p><p><strong>File Name:</strong> </p><p><strong>Due Date:</strong> ' + result.dueDate + '</p><p><strong>Status:</strong> ' + result.status + '</p><p><strong>Course:</strong> </p><p><strong>Professor:</strong> </p><p><strong>Collaborators:</strong> </p><p><strong>Grade:</strong> </p></div><!--actions to do to the project are here--><div class="projectActions"><div class="btn">Edit<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Update Priority<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Download File<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Add Note<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Submit for Grading<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Delete<a href="#" class="deleteBtn"><span class="divButtonLink"></span></a></div></div><hr class="hr2"></div>');
+                        $(".projectsContainer").append(
+                        '<div class="projectBox"><input class="projectid" type="hidden" value="' + result.id + '"><!--project title goes here--><div class="projectTitle"><h2>' + result.projectName + '</h2></div><!--details for projects go here--><div class="projectDetails"><p><strong>Description:</strong> ' + result.projectDescription + '<br><strong>File Name:</strong> <br><strong>Due Date:</strong> ' + result.dueDate + '<br><strong>Status:</strong> ' + result.status + '<br><strong>Course:</strong> <br><strong>Professor:</strong> <br><strong>Collaborators:</strong> <br><strong>Grade:</strong> </p></div><!--actions to do to the project are here--><div class="projectActions"><div class="btn">Edit<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Update Priority<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Download File<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Add Note<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Submit for Grading<a href="#"><span class="divButtonLink"></span></a></div><div class="btn">Delete<a href="#" class="deleteBtn"><span class="divButtonLink"></span></a></div></div></div>');
                     } /*End of for loop*/
                     
-                    $('.deleteBtn').on('click', function (e) {
+                    
+                    // Deleting a project & using jQuery UI Modal Dialog Box (Located in projects page)
+                    $(function() {
+                        $( "#dialog-confirm" ).dialog({
+                            autoOpen: false,
+                            resizable: false,
+                            width: 400,
+                            modal: true,
+                            buttons: {
+                                "Yes, Delete This Project": function() {
+
+                                    var currentProjectID = $('.deleteBtn').closest('.projectBox').find('input[class = "projectid"]').prop("value");
+
+                                    $.ajax({
+                                        url: 'xhr/delete_project.php',
+                                        data: {
+                                            projectID: currentProjectID
+                                        },
+                                        type: 'post',
+                                        dataType: 'json',
+                                        success: function (response) {
+                                            if (response.error) {
+                                                alert(response.error);
+                                            } else {
+                                                window.location.assign("projects.html");
+                                            }
+                                        }
+                                    });
+                                    
+                                    $( this ).dialog( "close" );
+                                },
+                                Cancel: function() {
+                                    $( this ).dialog( "close" );
+                                }
+                          }
+                        });
+                        
+                        $('.deleteBtn').on('click', function(e) {
+                            e.preventDefault();
+                            $( "#dialog-confirm" ).dialog( "open" );
+                            
+                            /*console.log("testing to open the dialog box");
+                            
+                            var currentProjectTitle = $('.deleteBtn').closest('.projectTitle').first('h2').html();
+                                    
+                            console.log("current project title: " + currentProjectTitle);
+                                    
+                            $('#titleInsert').html(currentProjectTitle);*/
+                            
+                        });
+                      });
+                    
+                    
+                    // Deleting a project
+                    /*$('.deleteBtn').on('click', function (e) {
                         e.preventDefault();
+                        
                         
                         var currentProjectID = $(this).closest('.projectBox').find('input[class = "projectid"]').prop("value");
                         
                         console.log("You've deleted project ID: " + currentProjectID);
                         
-                        console.log('test delete');
                         $.ajax({
                             url: 'xhr/delete_project.php',
                             data: {
@@ -262,13 +316,48 @@ Full Sail University
                                 }
                             }
                         });
-                    }); /*End of delete btn on click*/
+                    }); *//*End of delete btn on click*/
                     
                 }  /*End of else statement*/
             }  /*End of success function*/
         });  /*End of ajax function inside of projects var*/
     };  /*End of projects var*/
     projects();
+    
+    
+    
+    //  Datepicker Theme from jQuery UI (Located in add project modal)
+    $('.myDatePicker').datepicker({
+        minDate: 0    
+    });
+    
+    
+    
+    //  Sortable Projects from jQuery UI (Located in projects page)
+    $(function() {
+        $( "#sortable" ).sortable({
+            tolerance: "pointer",
+            opacity: 0.5,
+            cursor: "move",
+            helper: "clone"
+        });
+        
+        $( "#sortable" ).disableSelection();
+    });
+    
+    
+    
+    //  Tabs jQuery UI functionality -- EXTRA UI FEATURE (Located on dashboard)
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+    
+    
+    
+    //  Selectable Box List -- EXTRA UI FEATURE (Located in add project modal)
+    $(function() {
+        $( "select" ).selectmenu();
+    });
     
     
 })(jQuery); // end private scope

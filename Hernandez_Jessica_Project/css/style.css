@@ -110,8 +110,11 @@ hr {
     clear: both;
 }
 
+
+
 .projectDetails {
     padding: 10px 0;
+    line-height: 1.5em;
 }
 
 #logo {
@@ -130,44 +133,18 @@ nav {
 }
 
 #tabs {
-    width: 700px;
-    padding: 30px;
+    width: 80%;
     margin: 0 auto;
-    border: 2px solid #398595;
 }
 
-#tabs-nav {
-    width: 764px;
-    height: 58px;
-    padding: 0;
-    text-decoration: none;
-    list-style-type: none;
-    margin: 0 auto;
-    color: #fff;
+.ui-tabs-panel p {
+    line-height: 1.7em;
 }
 
-#tabs-nav li {
-    display: inline;
-    overflow: auto;
-}
-
-#tabs-nav li div{
-    display: inline-block;
-    position: relative;
-    padding: 20px 30px;
-    background-color: #bf4336;
+.ui-tabs-nav li {
     text-transform: uppercase;
-    font-weight: bold;
-    margin: 0 30px 0 0;
     letter-spacing: 2px;
-}
-
-.current > div{
-    background-color: #ef6752 !important;
-    border-top: 2px solid #398595;
-    border-right: 2px solid #398595;
-    border-left: 2px solid #398595;
-    border-bottom: 2px solid #f4f3f2;
+    font-weight: bold;
 }
 
 .overlay {
@@ -185,13 +162,14 @@ nav {
 
 #modal {
     width: 500px;
-    background-color: #8cd9e2;
+/*    background-color: #8cd9e2;*/  /*Original Modal Color*/
+    background-color: rgba(76, 255, 0, 0.06);  /* Temporary modal color to get the select menu to work*/
     box-shadow: 0 0 30px #2b2b2b;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
     top: 15%;
     left: 30%;
-    z-index: 1001;
+    z-index: 900;
     display: none;
     padding: 20px;
 }
@@ -240,6 +218,10 @@ h1 {
 
 h2 {
     font-family: 'Averia Serif Libre', cursive;
+}
+
+.projectTitle h2 {
+    margin: 5px auto;
 }
 
 .modalHeader {
@@ -466,9 +448,17 @@ form {
 
 #formSubmit, .projectActions {
     background: #dbdbdb;
-    padding: 20px 10px;
     border-top: 1px solid #555;
 }
+
+#formSubmit {
+    padding: 20px 10px;
+}
+
+.projectActions {
+    padding: 10px;
+    margin-bottom: 40px !important;
+}   
 
 input[type='text'], input[type='email'], input[type='password'], input[type='file'], input[type='date'] {
     width: 88%;
@@ -491,8 +481,8 @@ input[type='file'], input[type='date'] {
     margin: 0 20px;
 }
 
-#fields, .projectDetails, #tabs{
-    background: #f4f3f2;
+#fields, .projectDetails{
+    background-color: #f4f3f2 !important;
     padding-bottom: 15px;
 }
 
@@ -537,6 +527,18 @@ input[type='radio']:checked + img {
     border: 2px solid #c4fbe6;
 }
 
+select {
+    width: 455px;
+    z-index: 9999 !important;
+}
+
+#course {
+    z-index: 9999 !important;
+}
+
+.ui-selectmenu-button {
+    margin: 5px 20px 20px;
+}
 
 
 
