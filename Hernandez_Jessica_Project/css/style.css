@@ -119,6 +119,14 @@ hr {
 
 #logo {
     padding-top: 5px;
+    position: relative;
+}
+
+#gif-logo {
+    position: relative;
+    z-index: 40;
+    top: 0;
+    left: 0;
 }
 
 

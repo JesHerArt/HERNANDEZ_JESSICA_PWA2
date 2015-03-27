@@ -8,7 +8,20 @@ Full Sail University
 */
 
 (function ($) {
+    
+    // Hide / unhide logos between gif and png on first load of the index.html.
+    $('#png-logo').addClass('hide');
+    $('#gif-logo').removeClass('hide');
+    
+    
+    // This will them hide the gif and show the png again so the gif only plays once. 
+    setTimeout( function() {
+                    $('#gif-logo').addClass('hide');
+                    $('#png-logo').removeClass('hide');
+                }, 1500 );
 	
+    
+    
     // Add to bookmarks functionality for the bookmark banner on the homepage
     $("#bookmarkme").click(function () {
         // Mozilla Firefox Bookmark
