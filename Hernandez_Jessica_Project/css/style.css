@@ -1,7 +1,7 @@
 /*
 Jessica J. Hernandez
 ID: 0004631401
-March 6, 2015 - March 13, 2015 (Project Week 2)
+March 20, 2015 - March 27, 2015 (Project Week 4)
 Programming for Web Applications 2 | 201503-01
 Professor: Crystal Silvestro
 Full Sail University
@@ -146,7 +146,6 @@ nav {
     letter-spacing: 2px;
     font-weight: bold;
 }
-
 .overlay {
     width: 100%;
     height: 100%;
@@ -155,23 +154,27 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1000;
+    z-index: 50;
     display: none;
     background: rgba(240, 248, 255, 0.6);
 }
 
+/*ORIGNAL MODAL*/
 #modal {
     width: 500px;
-/*    background-color: #8cd9e2;*/  /*Original Modal Color*/
-    background-color: rgba(76, 255, 0, 0.06);  /* Temporary modal color to get the select menu to work*/
+    background-color: #8cd9e2;
     box-shadow: 0 0 30px #2b2b2b;
-    overflow: auto;
+    overflow: hidden;
     position: relative;
-    top: 15%;
-    left: 30%;
-    z-index: 900;
+    top: 10%;
+    left: 23%;
+    z-index: 1001;
     display: none;
     padding: 20px;
+}
+
+#addProjectForm {
+    position: relative;
 }
 
 #loginModal {
@@ -529,15 +532,15 @@ input[type='radio']:checked + img {
 
 select {
     width: 455px;
-    z-index: 9999 !important;
-}
-
-#course {
-    z-index: 9999 !important;
+    position: absolute;
 }
 
 .ui-selectmenu-button {
     margin: 5px 20px 20px;
+}
+
+span[class="ui-selectmenu-button ui-widget ui-state-default ui-state-focus ui-corner-all"] {
+    z-index: 1010;
 }
 
 

@@ -85,7 +85,7 @@ Full Sail University
             <div id="addBtn1">+<a href="#" class="modalClick"><span class="divButtonLink"></span></a></div><div id="addBtn2">Add a new project<a href="#" class="modalClick"><span class="divButtonLink"></span></a></div>
         </div>
         
-        <div id="dialog-confirm" title="Confirm Deletion">
+        <div id="dialog-confirm" title="Confirm Deletion" class="hide" >
             <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span><strong>WARNING!</strong><br><br><br>The project <span id="titleInsert"></span> will be permanently deleted and cannot be recovered. Are you sure you want to continue?</p>
         </div>
         
@@ -109,14 +109,16 @@ Full Sail University
                         
                         <label for="course" class="courseMenu">Course:</label>
                         <select name="course" id="course" class="courseMenu">
-                          <optgroup label="Full Sail University">
-                            <option value="pwa2" class="ui-selectmenu-text">Programming for Web Applications 2</option>
-                            <option value="wsp" class="ui-selectmenu-text">Web Standards Project</option>
-                          </optgroup>
-                          <optgroup label="Florida International University">
-                            <option value="webman" class="ui-selectmenu-text">Website Construction and Management</option>
-                            <option value="net" class="ui-selectmenu-text">Applied Computer Networking</option>
-                          </optgroup>
+                            <optgroup label="Full Sail University">
+                                <option value="pwa2" class="ui-selectmenu-text">Programming for Web Applications 2</option>
+                                <option value="wsp" class="ui-selectmenu-text">Web Standards Project</option>
+                                <option value="fe-webframe" class="ui-selectmenu-text">Front-End Web Frameworks</option>
+                            </optgroup>
+                            <optgroup label="Florida International University">
+                                <option value="os" class="ui-selectmenu-text">Computer Operating Systems</option>
+                                <option value="webman" class="ui-selectmenu-text">Website Construction and Management</option>
+                                <option value="net" class="ui-selectmenu-text">Applied Computer Networking</option>
+                            </optgroup>
                         </select>
        
                         <label for="pFile">Project File: </label>

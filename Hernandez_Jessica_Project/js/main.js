@@ -239,84 +239,54 @@ Full Sail University
                     
                     
                     // Deleting a project & using jQuery UI Modal Dialog Box (Located in projects page)
-                    $(function() {
-                        $( "#dialog-confirm" ).dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            width: 400,
-                            modal: true,
-                            buttons: {
-                                "Yes, Delete This Project": function() {
-
-                                    var currentProjectID = $('.deleteBtn').closest('.projectBox').find('input[class = "projectid"]').prop("value");
-
-                                    $.ajax({
-                                        url: 'xhr/delete_project.php',
-                                        data: {
-                                            projectID: currentProjectID
-                                        },
-                                        type: 'post',
-                                        dataType: 'json',
-                                        success: function (response) {
-                                            if (response.error) {
-                                                alert(response.error);
-                                            } else {
-                                                window.location.assign("projects.html");
-                                            }
-                                        }
-                                    });
-                                    
-                                    $( this ).dialog( "close" );
-                                },
-                                Cancel: function() {
-                                    $( this ).dialog( "close" );
-                                }
-                          }
-                        });
-                        
-                        $('.deleteBtn').on('click', function(e) {
-                            e.preventDefault();
-                            $( "#dialog-confirm" ).dialog( "open" );
-                            
-                            /*console.log("testing to open the dialog box");
-                            
-                            var currentProjectTitle = $('.deleteBtn').closest('.projectTitle').first('h2').html();
-                                    
-                            console.log("current project title: " + currentProjectTitle);
-                                    
-                            $('#titleInsert').html(currentProjectTitle);*/
-                            
-                        });
-                      });
-                    
-                    
-                    // Deleting a project
-                    /*$('.deleteBtn').on('click', function (e) {
+                    $('.deleteBtn').on('click', function(e) {
                         e.preventDefault();
+                        var pid= $(this).closest('.projectBox').find(".projectid").val();  //grab project id value
+                        $('#dialog-confirm').removeClass('hide'); //remove hide class from dialog
+                        openDialogBox(pid);  //call the function and pass the pid(the project id value)
+                    });
+                    
+                    var openDialogBox = function(pidPasser) {
                         
-                        
-                        var currentProjectID = $(this).closest('.projectBox').find('input[class = "projectid"]').prop("value");
-                        
-                        console.log("You've deleted project ID: " + currentProjectID);
-                        
-                        $.ajax({
-                            url: 'xhr/delete_project.php',
-                            data: {
-                                projectID: currentProjectID
-                            },
-                            type: 'post',
-                            dataType: 'json',
-                            success: function (response) {
-                                console.log('testing for success');
-                                
-                                if (response.error) {
-                                    alert(response.error);
-                                } else {
-                                    window.location.assign("projects.html");
+                        $(function() {  //self executing function for the dialog box to auto open
+                            $( "#dialog-confirm" ).dialog({
+                                autoOpen: true,
+                                resizable: false,
+                                width: 400,
+                                modal: true,
+                                buttons: {
+                                    "Yes, Delete This Project": function() {
+
+                                        var projectToDelete = pidPasser;  // Set variable to the pid that was passed
+
+                                        $.ajax({
+                                            url: 'xhr/delete_project.php',
+                                            data: {
+                                                projectID: projectToDelete  //the project to be deleted
+                                            },
+                                            type: 'post',
+                                            dataType: 'json',
+                                            success: function (response) {
+                                                if (response.error) {
+                                                    alert(response.error);
+                                                } else {
+                                                    window.location.assign("projects.html");
+                                                }
+                                            }
+                                        });
+
+                                        $( this ).dialog( "close" );  //close dialog box
+                                        $('#dialog-confirm').addClass('hide'); //add the hide class back on to dialog box
+                                    },
+                                    Cancel: function() {
+                                        $( this ).dialog( "close" );  //close dialog box
+                                        $('#dialog-confirm').addClass('hide'); //add the hide class back on to dialog box
+                                    }
                                 }
-                            }
+                            });
+                            
                         });
-                    }); *//*End of delete btn on click*/
+                    };
                     
                 }  /*End of else statement*/
             }  /*End of success function*/
@@ -328,7 +298,7 @@ Full Sail University
     
     //  Datepicker Theme from jQuery UI (Located in add project modal)
     $('.myDatePicker').datepicker({
-        minDate: 0    
+        minDate: 0    //setting the minimum date to current date
     });
     
     
@@ -337,7 +307,7 @@ Full Sail University
     $(function() {
         $( "#sortable" ).sortable({
             tolerance: "pointer",
-            opacity: 0.5,
+            opacity: 0.5, 
             cursor: "move",
             helper: "clone"
         });
